@@ -1,0 +1,2 @@
+# AeroForgeX
+AeroForgeX v3.0 is an enterprise-grade, high-fidelity Multidisciplinary Design Optimization (MDO) suite specifically engineered for 2D aerodynamic profiles. Developed by Gamil Abdullah Al-Sharif at the Department of Mechanical Engineering, Sana'a University, Yemen, this software bridges the critical gap between abstract artificial intelligence, rigid fluid mechanics, and structural engineering constraints.
