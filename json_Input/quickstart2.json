@@ -1,0 +1,15 @@
+{
+  "opt_opts": {
+    "solver": "xfoil", "shape_func": "cst", 
+    "out_prefix": "UAV_Quickstart", "auto_output_dir": true, 
+    "threads": -1, "verbose": true
+  },
+  "cst_opts": { "n_t": 6, "n_b": 6, "initial_perturb": 0.05 },
+  "op_conds": {
+    "num_pts": 1, "re_def": 500000.0, 
+    "mode": ["spec-al"], "val": [5.0], "opt_type": ["max-glide"], "weight": [1.0]
+  },
+  "constr": { "chk_geo": true, "min_t": 0.11, "min_te_ang": 5.0 },
+  "curv": { "chk_curv": true, "auto_curv": true },
+  "optim_set": { "type": 2, "algo": "jde", "pop": 30, "gen": 50, "rescue": true }
+}

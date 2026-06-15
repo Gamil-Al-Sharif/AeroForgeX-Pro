@@ -1,0 +1,7 @@
+{
+  "polar_generation": {
+    "generate_polar": true, "polar_reynolds": [500000.0], "polar_mach": [0.0],
+    "op_mode": "spec-al", "op_point_range": [-5.0, 15.0, 0.5]
+  },
+  "xfoil_opts": { "ncrit": 9.0, "iter": 200 }
+}

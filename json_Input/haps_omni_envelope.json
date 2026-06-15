@@ -1,0 +1,66 @@
+{
+  "__SYSTEM__": "HAPS 8-Point Omni-Envelope Optimization",
+  
+  "opt_opts": {
+    "solver": "neuralfoil",
+    "shape_func": "cst",
+    "foil_file": "Airfoils/Sg6040.dat",
+    "out_prefix": "HAPS_Omni_Pass1",
+    "auto_output_dir": true,
+    "cpu_threads": -1,
+    "verbose": true
+  },
+  
+  "cst_opts": {
+    "n_t": 6,
+    "n_b": 7,
+    "initial_perturb": 0.15
+  },
+  
+  "op_conds": {
+    "num_pts": 8,
+    "mach_default": 0.05,
+    "dynamic_weighting": true,
+    "dynamic_weighting_spec": {
+      "min_weighting": 0.5,
+      "max_weighting": 15.0,
+      "extra_punch": 2.5,
+      "frequency": 15,
+      "start_with_design": 10
+    },
+
+    "__COMMENT__": "Arrays mapped to: [Takeoff, Climb_Low, Climb_Mid, Tropopause, Cruise_Heavy, Cruise_Light, Dash, Downdraft_Check]",
+    
+    "mode":     ["spec-cl",  "spec-cl",   "spec-cl",   "spec-al", "spec-cl",  "spec-cl",  "spec-al",  "spec-al"],
+    "val":      [1.4,        1.0,         0.8,         6.0,       0.6,        0.4,        0.0,        -2.0     ],
+    "re":       [2000000.0,  1500000.0,   1000000.0,   700000.0,  400000.0,   300000.0,   500000.0,   500000.0 ],
+    "opt_type": ["max-lift", "max-glide", "max-glide", "min-drag","min-sink", "min-sink", "min-drag", "min-drag"],
+    "weight":   [1.5,        1.0,         1.5,         1.0,       3.0,        1.0,        1.0,        1.0      ]
+  },
+  
+  "constr": {
+    "chk_geo": true,
+    "min_t": 0.10,
+    "min_te_ang": 3.0
+  },
+  
+  "curv": {
+    "chk_curv": true,
+    "auto_curv": true,
+    "max_curv_reverse_top": 1,
+    "max_curv_reverse_bot": 1
+  },
+  
+  "optim_set": {
+    "type": 3,
+    "algo": "shade",
+    "pop": 120,
+    "gen": 300,
+    "rescue": true
+  },
+  
+  "xfoil_opts": {
+    "sap_enabled": false,
+    "ncrit": 9.0
+  }
+}

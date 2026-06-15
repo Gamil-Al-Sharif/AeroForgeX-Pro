@@ -1,0 +1,5 @@
+[tool.codeflash]
+module-root = "AeroForgeX_scr"
+tests-root = "tests"
+ignore-paths = []
+formatter-cmds = ["disabled"]

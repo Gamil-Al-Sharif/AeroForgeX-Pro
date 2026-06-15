@@ -1,0 +1,97 @@
+{
+  "__SYSTEM__": "Enterprise 6-Point Co-Optimization Pipeline",
+  
+  "opt_opts": {
+    "solver": "xfoil",
+    "shape_func": "cst",
+    "out_prefix": "Enterprise_MDO",
+    "auto_output_dir": true,
+    "threads": -1,
+    "verbose": true
+  },
+  
+  "cst_opts": {
+    "n_t": 8, "n_b": 8, "initial_perturb": 0.10
+  },
+  
+  "op_conds": {
+    "__COMMENT__": "6 Points: Takeoff, Climb, Cruise1, Cruise2, Loiter, Landing",
+    "num_pts": 6,
+    
+    "use_flap": true,
+    "x_flap": 0.75,
+    
+    "dynamic_weighting": true,
+    "dynamic_weighting_spec": {
+      "min_weighting": 0.2,
+      "max_weighting": 15.0,
+      "extra_punch": 2.5,
+      "frequency": 20,
+      "start_with_design": 15
+    },
+
+    "mode":     ["spec-cl", "spec-cl", "spec-cl", "spec-al", "spec-al", "spec-cl"],
+    "val":      [1.5,       0.8,       0.4,       2.0,       6.0,       2.0      ],
+    "re":       [2e6,       1e6,       500000.0,  500000.0,  300000.0,  2e6      ],
+    "ma":       [0.10,      0.20,      0.45,      0.45,      0.15,      0.10     ],
+    "opt_type": ["max-lift","max-glide","min-drag","min-drag","min-sink","max-lift"],
+    "weight":   [1.0,       1.5,       4.0,       4.0,       1.0,       1.0      ],
+    
+    "__COMMENT__": "AI physically morphs the Flap Angle ONLY on Takeoff and Landing (Indices 0 & 5)",
+    "flap_opt": [true,      false,     false,     false,     false,     true     ],
+    "flap_ang": [10.0,      0.0,       0.0,       0.0,       0.0,       20.0     ]
+  },
+  
+  "geo_tgts": {
+    "num_tgts": 1,
+    "type": ["thickness"],
+    "val": [0.14],
+    "weight": [10.0],
+    "preset": [false]
+  },
+  
+  "progression_spec": {
+    "active": true
+  },
+  
+  "constr": {
+    "chk_geo": true,
+    "min_t": 0.138,
+    "max_t": 0.142,
+    "min_te_ang": 5.0,
+    "min_flap": 0.0,
+    "max_flap": 30.0
+  },
+  
+  "curv": {
+    "chk_curv": true,
+    "auto_curv": true,
+    "max_curv_reverse_top": 0,
+    "max_curv_reverse_bot": 0
+  },
+  
+  "optim_set": {
+    "type": 3,
+    "algo": "lshade",
+    "pop": 180,
+    "gen": 500,
+    "rescue": true
+  },
+  
+  "xfoil_opts": {
+    "visc": true,
+    "iter": 200,
+    "ncrit": 9.0,
+    "vaccel": 0.005,
+    "__COMMENT__": "SAP Bouncer active. Rejects CNN hallucinations below 60% confidence.",
+    "sap_enabled": true,
+    "nf_conf_threshold": 0.60,
+    "cache_prec": 6
+  },
+  
+  "panel_opts": {
+    "npt": 250,
+    "le_clust": 0.90,
+    "te_clust": 0.60
+  }
+}

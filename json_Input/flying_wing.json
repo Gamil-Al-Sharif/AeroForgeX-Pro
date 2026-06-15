@@ -1,0 +1,21 @@
+{
+  "opt_opts": { "solver": "xfoil", "shape_func": "cst", "out_prefix": "BWB_Reflex" },
+  "cst_opts": { "n_t": 6, "n_b": 6 },
+  "op_conds": {
+    "num_pts": 2,
+    "re_def": 1000000.0,
+    "mode": ["spec-al", "spec-al"],
+    "val": [3.0, 3.0],
+    "opt_type": ["max-glide", "target-moment"],
+    "tgt_val": [-999.0, 0.02],
+    "allow_improved_target": [false, false],
+    "weight": [1.0, 5.0]
+  },
+  "constr": { "chk_geo": true, "min_t": 0.14 },
+  "curv": { 
+    "chk_curv": true, 
+    "max_curv_reverse_top": 1, 
+    "max_curv_reverse_bot": 1 
+  },
+  "optim_set": { "type": 3, "algo": "shade", "pop": 80, "gen": 200 }
+}

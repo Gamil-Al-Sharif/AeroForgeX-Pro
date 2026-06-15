@@ -1,0 +1,45 @@
+{
+  "__SYSTEM__": "High-Order Bezier Salvage & Transonic Optimization",
+  
+  "opt_opts": {
+    "solver": "neuralfoil",
+    "shape_func": "bezier",
+    "out_prefix": "Supercritical_Jet",
+    "threads": -1
+  },
+  
+  "bez_opts": {
+    "__COMMENT__": "12 Control points provides enough degrees of freedom for aft-loading",
+    "ncp_t": 12,
+    "ncp_b": 12,
+    "initial_perturb": 0.05
+  },
+  
+  "op_conds": {
+    "num_pts": 1,
+    "re_def": 12000000.0,
+    "ma_def": 0.72,
+    "mode": ["spec-cl"],
+    "val": [0.45],
+    "opt_type": ["min-drag"],
+    "weight": [1.0]
+  },
+  
+  "curv": {
+    "chk_curv": true,
+    "auto_curv": true,
+    "__COMMENT__": "Allowing 1 macro-reversal permits the necessary S-shape on the bottom tail",
+    "max_curv_reverse_top": 0,
+    "max_curv_reverse_bot": 1,
+    "max_te_curvature": 8.0
+  },
+  
+  "optim_set": {
+    "__COMMENT__": "12 Top + 12 Bot = 24 Variables. SHADE with large population is mandatory.",
+    "type": 3,
+    "algo": "shade",
+    "pop": 250,
+    "gen": 400,
+    "rescue": true
+  }
+}

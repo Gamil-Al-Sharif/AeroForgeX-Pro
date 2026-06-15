@@ -1,0 +1,41 @@
+{
+  "__SYSTEM__": "Automated Aerodynamic Polar Sweeper",
+  
+  "opt_opts": {
+    "solver": "xfoil",
+    "threads": -1
+  },
+
+  "polar_generation": {
+    "__COMMENT__": "This block triggers the Combinatorial Matrix",
+    "generate_polar": true,
+    "type_of_polar": 1,
+    "polar_reynolds": [500000.0, 1000000.0, 2000000.0],
+    "polar_mach": [0.0, 0.05, 0.10],
+    "op_mode": "spec-al",
+    "op_point_range": [-5.0, 15.0, 0.5]
+  },
+
+  "operating_conditions": {
+    "__COMMENT__": "Generates 3 flap states. Total Sweeps = 3 Re x 3 Mach x 3 Flaps = 27",
+    "x_flap": 0.70,
+    "y_flap": 0.0,
+    "flap_angle": [0.0, 5.0, 10.0]
+  },
+
+  "xfoil_run_options": {
+    "visc": true,
+    "iter": 200,
+    "ncrit": 9.0,
+    "vaccel": 0.005,
+    "__COMMENT__": "CRITICAL: Reinit MUST be false for Alpha sweeps to prevent stall-divergence",
+    "reinit": false, 
+    "fix_unconverged": true
+  },
+
+  "paneling_options": {
+    "npoint": 161,
+    "le_clustering": 0.86,
+    "te_clustering": 0.60
+  }
+}

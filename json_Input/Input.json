@@ -1,0 +1,136 @@
+{
+  "optimization_options": {
+    "airfoil_file": "Airfoils/ah93w174.dat",
+    "output_directory": "Outputs/SmallTurbine_RPPT_Ult2/CST",
+    "output_prefix": "ah93w174-norm_Tip_ultra_22pct",
+    "shape_functions": "cst",
+    "aero_solver": "neuralfoil",
+    "max_iterations": 1000,
+    "population_size": 100,
+    "convergence_profile": "exhaustive",
+    "show_details": true,
+    "save_intermediate": true,
+    "intermediate_interval": 20,
+    "random_seed": 42
+  },
+  "cst_options": {
+    "n_weights_top": 8,
+    "n_weights_bot": 8,
+    "n1_top": 0.5,
+    "n2_top": 1.0,
+    "n1_bot": 0.5,
+    "n2_bot": 1.0,
+    "initial_perturb": 0.05
+  },
+  "bezier_options": {
+    "ncp_top": 15,
+    "ncp_bot": 15,
+    "initial_perturb": 0.1,
+    "fit_tolerance": 1e-3
+  },
+  "camb_thick_options": {
+    "thickness": true,
+    "thickness_pos": true,
+    "camber": true,
+    "camber_pos": true,
+    "le_radius": true,
+    "initial_perturb": 0.1
+  },
+  "hicks_henne_options": {
+    "nfunctions_top": 11,
+    "nfunctions_bot": 11,
+    "initial_perturb": 0.05,
+    "smooth_seed": true
+  },  
+  "operating_conditions": {
+    "noppoint": 10,
+    "re_default": 200000.0,
+    "allow_improved_target": true,
+    "dynamic_weighting": true,
+    "dynamic_weighting_spec": {
+      "active": true,
+      "min_weighting": 0.2,
+      "max_weighting": 10.0,
+      "extra_punch": 2.0,
+      "frequency": 20,
+      "start_with_design": 5
+    },
+    
+    "op_mode(1)": "spec-al", "op_point(1)": 12.0, "reynolds(1)": 150000.0, "optimization_type(1)": "max-glide", "weighting(1)": 1.0,
+    "op_mode(2)": "spec-al", "op_point(2)": 10.0, "reynolds(2)": 200000.0, "optimization_type(2)": "max-glide", "weighting(2)": 2.0,
+    "op_mode(3)": "spec-al", "op_point(3)": 6.0, "reynolds(3)": 500000.0, "optimization_type(3)": "max-glide", "weighting(3)": 3.0,
+    "op_mode(4)": "spec-al", "op_point(4)": 6.0, "reynolds(4)": 300000.0, "optimization_type(4)": "max-glide", "weighting(4)": 4.0,
+    "op_mode(5)": "spec-al", "op_point(5)": 6.0, "reynolds(5)": 700000.0, "optimization_type(5)": "max-glide", "weighting(5)": 6.0,
+    "op_mode(6)": "spec-al", "op_point(6)": 9.0, "reynolds(6)": 400000.0, "optimization_type(6)": "max-glide", "weighting(6)": 3.0,
+    "op_mode(7)": "spec-al", "op_point(7)": 7.0, "reynolds(7)": 250000.0, "optimization_type(7)": "max-glide", "weighting(7)": 2.0,
+    "op_mode(8)": "spec-al", "op_point(8)": 9.0, "reynolds(8)": 700000.0, "optimization_type(8)": "max-glide", "weighting(8)": 2.0,
+    "op_mode(9)": "spec-al", "op_point(9)": 12.0, "reynolds(9)": 700000.0, "optimization_type(9)": "max-glide", "weighting(9)": 1.5,
+    "op_mode(10)": "spec-al","op_point(10)": 9.0, "reynolds(10)":800000.0, "optimization_type(10)": "max-glide", "weighting(10)": 1.0
+  },
+  "geometry_targets": {
+    "ngeo_targets": 2,
+    "target_type(1)": "thickness",
+    "target_value(1)": 0.18,
+    "weighting(1)": 5.30,
+    "tolerance(1)": 0.005,
+    "target_type(2)": "camber",
+    "target_value(2)": 0.04,
+    "weighting(2)": 1.0,
+    "tolerance(2)": 0.003
+  },
+  "constraints": {
+    "check_geometry": true,
+    "min_thickness": 0.16,
+    "max_thickness": 0.19,
+    "min_camber": 0.0005,
+    "max_camber": 0.045,
+    "min_te_angle": 8.9500,
+    "symmetrical": false
+  },
+  "curvature": {
+    "check_curvature": true,
+    "auto_curvature": true,
+    "max_curv_reverse_top": 1,
+    "max_curv_reverse_bot": 1,
+    "curv_threshold": 0.05,
+    "max_te_curvature": 16.0,
+    "max_le_curvature_diff": 2.2,
+    "spike_threshold": 0.3,
+    "max_spikes_top": 0,
+    "max_spikes_bot": 0
+  },
+  "xfoil_run_options": {
+    "bl_maxit": 300,
+    "ncrit": 9.0,
+    "vaccel": 0.01,
+    "reinitialize": false,
+    "fix_unconverged": true,
+    "xtript": 1.0,
+    "xtripb": 1.0,
+    "timeout": 100.0,
+    "xfoil_path": "xfoil"
+  },
+  "paneling_options": {
+    "npoint": 221,
+    "le_bunch": 0.9,
+    "te_bunch": 0.65,
+    "method": "cosine",
+    "check_paneling": true,
+    "min_panel_length": 1e-4,
+    "max_panel_angle": 30.0,
+    "max_aspect_ratio": 100.0
+  },
+  "particle_swarm_options": {
+    "pop": 500,
+    "min_radius": 0.0001,
+    "max_iterations": 3000,
+    "max_retries": 3,
+    "max_speed": 0.021,
+    "init_attempts": 1000,
+    "convergence_profile": "exhaustive",
+    "rescue_particles": true,
+    "stuck_threshold": 15,
+    "diversity_maintenance": true,
+    "adaptive_weights": true
+  }
+}

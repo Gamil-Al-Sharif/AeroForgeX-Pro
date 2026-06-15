@@ -1,0 +1,19 @@
+{
+  "opt_opts": { "solver": "xfoil", "shape_func": "cst", "foil_file": ["Airfoils", "ah93w215.dat"], "out_dir": "Outputs", "auto_dir": true, "out_prefix": "ah93w215_20", "threads": 6, "verbose": true, "wait": false },
+  "cst_opts": { "n_t": 9, "n_b": 9, "n1_t": 0.5, "n2_t": 1.0, "n1_b": 0.5, "n2_b": 1.0, "init_pert": 0.05 },
+  "op_conds": {
+    "num_pts": 6, "re_def": 200000.0, "ma_def": 0.0, "use_flap": false,
+    "dyn_weight": true, "dyn_spec": { "min_w": 0.2, "max_w": 10.0 },
+    "mode": ["spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al"],
+    "val": [10.0, 10.0, 7.0, 6.0, 6.0, 9.0],
+    "re": [150000.0, 200000.0, 500000.0, 300000.0, 700000.0, 400000.0],
+    "opt_type": ["max-glide", "max-glide", "max-glide", "max-glide", "max-glide", "max-glide"],
+    "weight": [1.0, 2.0, 3.0, 4.0, 6.0, 3.0]
+  },
+  "geo_tgts": { "num_tgts": 2, "type": ["thickness", "camber"], "val": [0.20, 0.04], "weight": [10.30, 1.0] },
+  "constr": { "chk_geo": true, "min_t": 0.18, "max_t": 0.23, "min_c": 0.0000, "max_c": 0.052, "min_te_ang": 8.9500 },
+  "curv": { "chk_curv": true, "auto_curv": true, "max_rev_t": 1, "max_rev_b": 1, "max_te_c": 5.0 },
+  "panel_opts": { "npt": 250, "le_clust": 0.90, "te_clust": 0.65 },
+  "xfoil_opts": { "visc": true, "iter": 300, "ncrit": 9.0, "vaccel": 0.01 },
+  "optim_set": { "pop": 100, "gen": 300, "min_r": 0.0001, "rescue": true }
+}

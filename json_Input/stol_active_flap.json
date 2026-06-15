@@ -1,0 +1,24 @@
+{
+  "opt_opts": { "solver": "neuralfoil", "shape_func": "hicks-henne", "foil_file": ["Airfoils", "NACA4412.dat"], "out_dir": "Outputs", "auto_dir": true, "out_prefix": "STOL_Drone", "threads": -1, "verbose": true },
+  "cst_opts": { "n_t": 8, "n_b": 8, "init_pert": 0.10 },
+  "hh_opts": {
+    "n_t": 5,
+    "n_b": 3,
+    "smooth": true,
+    "init_pert": 0.05
+  },  
+  "op_conds": {
+    "num_pts": 3, "re_def": 400000.0, "ma_def": 0.05, 
+    "use_flap": true, "x_flap": 0.70, "y_flap": 0.0, "y_flap_spec": "y/c",
+    "mode": ["spec-al", "spec-al","spec-al"],
+    "val": [2.0, 8.0,5.0],
+    "opt_type": ["max-glide", "max-glide", "max-lift"],
+    "weight": [1.0, 2.0, 2.5],
+    "flap_opt": [false, true,true],
+    "flap_ang": [0.0, 10.0,5.0]
+  },
+  "constr": { "chk_geo": true, "min_t": 0.11, "max_t": 0.15, "min_flap": -5.0, "max_flap": 25.0 },
+  "curv": { "chk_curv": true, "auto_curv": true, "max_rev_t": 1, "max_rev_b": 1 },
+  "xfoil_opts": { "ncrit": 9.0 },
+  "optim_set": {"type": 2, "pop": 150, "gen": 200 }
+}

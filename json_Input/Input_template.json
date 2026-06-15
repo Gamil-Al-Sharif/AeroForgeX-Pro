@@ -1,0 +1,222 @@
+{
+  "__HEADER__": "=======================================================================================",
+  "__SYSTEM__": "AeroForgeX v4.0 Pro :: Master Configuration & Multidisciplinary Optimization Matrix",
+  "__AUTHOR__": "Gamil Abdullah Al-Sharif & Yhya Abdullah Al-Wazir|Mechanical Engineering, Sanaa, Yemen",
+  "__DESCRIPTION__": "Comprehensive aerodynamic, topological, and kinematic optimization template.",
+  "__FOOTER__": "=======================================================================================",
+
+  "__DOC_1__": "---------------- [ CORE SYSTEM & I/O ROUTING ] ----------------",
+  "opt_opts": {
+    "__DOC_AERO_SOLVER__": "Selects the aerodynamic evaluator. 'neuralfoil' (Deep Learning Surrogate) or 'xfoil' (Fortran Subprocess).",
+    "solver": "neuralfoil",
+    
+    "__DOC_SHAPE_FUNCTIONS__": "Selects the mathematical parameterization engine. Options: 'cst' (Kulfan), 'bezier', 'hicks-henne', 'camb-thick'.",
+    "shape_func": "cst",
+    
+    "__DOC_AIRFOIL_FILE__": "Path to the starting seed geometry (.dat, .bez, or .hicks).",
+    "foil_file": "Airfoils\\default.dat",
+    
+    "__DOC_OUTPUT_DIR__": "Target directory for logs, CSV matrices, and optimal geometries.",
+    "out_dir": "Outputs",
+    "base_dir": "Outputs",
+    "auto_dir": true,
+    
+    "__DOC_OUTPUT_PREFIX__": "The base filename applied to all generated files.",
+    "out_prefix": "default_root_opt_New",
+    
+    "__DOC_CPU_THREADS__": "Number of CPU cores to allocate. Use -1 to automatically utilize all available physical cores.",
+    "threads": 6,
+    
+    "__DOC_CONSOLE__": "Controls terminal UI. 'verbose' prints live matrices. 'wait' pauses terminal upon completion.",
+    "verbose": false,
+    "wait": false
+  },
+
+  "__DOC_2__": "---------------- [ PARAMETRIC GEOMETRY ENGINES ] ----------------",
+  "__DOC_GEOM_NOTE__": "Only the block corresponding to your chosen 'shape_func' will be evaluated. The others are ignored.",
+
+  "cst_opts": {
+    "__DOC_CST__": "Kulfan Class Shape Transformation (CST). Highly robust analytical method guaranteeing smooth derivatives.",
+    "n_t": 8,
+    "n_b": 8,
+    "n1_t": 0.4,
+    "n2_t": 1.0,
+    "n1_b": 0.5,
+    "n2_b": 1.0,
+    "init_pert": 0.05
+  },
+
+  "bez_opts": {
+    "__DOC_BEZIER__": "Parametric Bezier Curves. Prevents numerical stalls by eliminating high-frequency surface noise.",
+    "ncp_t": 6,
+    "ncp_b": 6,
+    "init_pert": 0.1
+  },
+
+  "hh_opts": {
+    "__DOC_HH__": "Sine-bump mathematical perturbations applied additively over the baseline seed geometry.",
+    "n_t": 5,
+    "n_b": 3,
+    "smooth": true,
+    "init_pert": 0.05
+  },
+
+  "ct_opts": {
+    "__DOC_CAMB_THICK__": "Global scalar morphing operations. Optimizes max limits without altering the underlying shape distribution.",
+    "thk": true,
+    "thk_pos": true,
+    "cmb": true,
+    "cmb_pos": true,
+    "le_r": true,
+    "le_b": true,
+    "init_pert": 0.1
+  },
+
+  "__DOC_3__": "---------------- [ AERODYNAMIC OPERATIONAL MATRIX ] ----------------",
+  "op_conds": {
+    "__DOC_NUM_PTS__": "Defines the total number of flight conditions. MUST match the length of the arrays below.",
+    "num_pts": 25,
+    
+    "__DOC_DEFAULTS__": "Fallback physical states if array values are omitted or missing.",
+    "re_def": 200000.0,
+    "ma_def": 0.0,
+    
+    "__DOC_FLAPS__": "Kinematic Trailing Edge deflections. use_flap allows mathematical rotation of the trailing edge.",
+    "use_flap": false,
+    "x_flap": 0.75,
+    "y_flap": 0.0,
+    "y_flap_spec": "y/c",
+    "flap_def": 0.0,
+
+    "__DOC_DYN_WEIGHTING__": "Dynamic Weighting Engine. Automatically inflates multipliers for underperforming objectives to force convergence.",
+    "dyn_weight": true,
+    "dyn_spec": {
+      "min_w": 0.2,
+      "max_w": 15.0
+    },
+
+    "__DOC_ARRAYS__": "v4.2 Data Arrays. Order represents OP 1 through 25.",
+    
+    "mode": [
+      "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al", "spec-al"
+    ],
+    "val": [
+      0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.5, 21.0, 22.0, 23.0, 24.0
+    ],
+    "re": [
+      300000.0, 320000.0, 350000.0, 380000.0, 400000.0, 400000.0, 380000.0, 350000.0, 320000.0, 300000.0, 280000.0, 250000.0, 220000.0, 200000.0, 180000.0, 160000.0, 150000.0, 140000.0, 130000.0, 125000.0, 115000.0, 105000.0, 100000.0, 100000.0, 100000.0
+    ],
+    "ma": [
+      0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+    ],
+    "ncrit": [
+      -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0
+    ],
+    "opt_type": [
+      "max-glide", "max-glide", "max-glide", "max-glide", "max-glide", "max-glide", "max-glide", "max-glide", "max-glide", "max-glide", "max-glide", "max-glide", "max-glide", "max-glide", "max-glide", "max-lift", "max-lift", "max-lift", "max-lift", "max-lift", "max-lift", "max-lift", "max-lift", "max-lift", "max-lift"
+    ],
+    "weight": [
+      0.5, 0.5, 0.5, 1.0, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 5.0, 4.0, 3.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5, 0.5, 0.5
+    ],
+    "flap_opt": [
+      false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+    ],
+    "flap_ang": [
+      0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+    ],
+    "tgt_val": [
+      -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0, -99999999.0
+    ],
+    "allow_imp": [
+      true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true
+    ]
+  },
+
+  "__DOC_4__": "---------------- [ GEOMETRIC SOFT-TARGETS & PROGRESSION ] ----------------",
+  "geo_tgts": {
+    "__DOC_TARGETS__": "Soft geometric objectives evaluated continuously. Valid types: 'thickness', 'camber', 'match-foil'.",
+    "num_tgts": 2,
+    "type": ["thickness", "camber"],
+    "val": [0.215, 0.04],
+    "weight": [10.3, 1.0],
+    "preset": [false, false],
+    "str": ["", ""]
+  },
+
+  "progression_spec": {
+    "__DOC_PROG__": "Gradual Geometry Progression. Slowly shifts targeted values alongside aerodynamic gains to prevent stalling.",
+    "active": false
+  },
+
+  "__DOC_5__": "---------------- [ STRUCTURAL CONSTRAINTS & TOPOLOGY ] ----------------",
+  "constr": {
+    "__DOC_CONSTRAINTS__": "Hard physical boundaries. Any design vector violating these is immediately rejected (Penalty = 1000).",
+    "chk_geo": true,
+    "sym": false,
+    "min_t": 0.2,
+    "max_t": 0.24,
+    "min_c": 0.01,
+    "max_c": 0.06,
+    "min_te_ang": 10.0,
+    "min_flap": -5.0,
+    "max_flap": 15.0
+  },
+
+  "curv": {
+    "__DOC_CURVATURE__": "Strict mathematical limits on surface noise. Prevents chaotic flows and Boundary Layer separation.",
+    "chk_curv": true,
+    "auto_curv": true,
+    "max_rev_t": 1,
+    "max_rev_b": 1,
+    "curv_thr": 0.05,
+    "spike_thr": 0.3,
+    "max_te_c": 5.0,
+    "max_le_diff": 18.2,
+    "max_spk_t": 0,
+    "max_spk_b": 0
+  },
+
+  "__DOC_6__": "---------------- [ MESH CLUSTERING & SOLVER PHYSICS ] ----------------",
+  "panel_opts": {
+    "__DOC_PANEL__": "NASA Arc-Cosine discrete coordinate clustering parameters. Regulates point density before solver ingestion.",
+    "npt": 161,
+    "le_clust": 0.9,
+    "te_clust": 0.65
+  },
+
+  "xfoil_opts": {
+    "__DOC_XFOIL__": "Backend limits for Fortran Subprocess evaluation. VACCEL > 0.01 mathematically destabilizes Newton root-finding.",
+    "visc": true,
+    "iter": 300,
+    "ncrit": 9.0,
+    "vaccel": 0.01,
+    "reinit": false,
+    "fix_unc": true,
+    "trip_t": 1.0,
+    "trip_b": 1.0,
+    
+    "__DOC_SAP__": "Surrogate-Assisted Pre-Screening. Bypasses Fortran if the AI predicts an immediate stall/failure.",
+    "sap_enabled": true,
+    "nf_conf_threshold": 0.5,
+    "cache_prec": 6,
+    "parallel_op": true
+  },
+
+  "__DOC_7__": "---------------- [ HYBRID MEMETIC ALGORITHM HYPERPARAMETERS ] ----------------",
+  "optim_set": {
+    "__DOC_PYMOO__": "Global Search and Local Simplex Hyperparameters for the PyMoo AI Engine.",
+    "__DOC_TYPE__": "1 = Standard DE, 2 = jDE (Self-Adaptive), 3 = SHADE (Success-History Adaptive).",
+    "type": 1,
+    "algo": "lshade",
+    "pop": 100,
+    "gen": 300,
+    "min_r": 0.0001,
+    "retry": 3,
+    "speed": 0.021,
+    "init_att": 1000,
+    "conv_prof": "exhaustive",
+    "rescue": true,
+    "f": 0.5,
+    "cr": 0.9
+  }
+}

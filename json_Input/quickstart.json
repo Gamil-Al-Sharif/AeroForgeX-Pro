@@ -1,0 +1,16 @@
+{
+  "opt_opts": { "solver": "xfoil", "shape_func": "cst", "foil_file": "Airfoils/NACA0012.dat", "out_dir": "Outputs", "auto_dir": true, "out_prefix": "NACA0012_Quickstart24", "threads": 5, "verbose": true },
+  "cst_opts": { "n_t": 6, "n_b": 6, "init_pert": 0.05 },
+  "op_conds": {
+    "num_pts": 2, "re_def": 500000.0, "ma_def": 0.0, "dyn_weight": true,
+    "mode": ["spec-al", "spec-cl"],
+    "val": [2.0, 0.7],
+    "opt_type": ["max-glide", "min-drag"],
+    "weight": [1.0, 1.0]
+  },
+  "geo_tgts": { "num_tgts": 1, "type": ["thickness"], "val": [0.12], "weight": [7.0] },
+  "constr": { "chk_geo": true, "min_t": 0.11, "max_t": 0.15, "min_te_ang": 5.0 },
+  "curv": { "chk_curv": true, "auto_curv": true, "max_rev_t": 1, "max_rev_b": 1 },
+  "xfoil_opts": { "visc": true, "iter": 200, "ncrit": 9.0 },
+  "optim_set": { "pop": 40, "gen": 10 }
+}

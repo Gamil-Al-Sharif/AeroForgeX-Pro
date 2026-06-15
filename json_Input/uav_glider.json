@@ -1,0 +1,19 @@
+{
+  "opt_opts": { "solver": "xfoil", "shape_func": "cst", "foil_file": ["Airfoils", "NACA0012.dat"], "out_dir": "Outputs", "auto_dir": true, "out_prefix": "UAV_Wing_Gen1", "threads": -1, "verbose": true },
+  "cst_opts": { "n_t": 5, "n_b": 5, "init_pert": 0.05 },
+  "op_conds": {
+    "num_pts": 2, "re_def": 200000.0, "ma_def": 0.05,
+    "dyn_weight": true, "dyn_spec": { "min_w": 0.5, "max_w": 5.0 },
+    "mode": ["spec-al", "spec-cl"],
+    "val": [5.0, 0.5],
+    "re": [200000.0, 500000.0],
+    "ma": [0.05, 0.10],
+    "opt_type": ["max-glide", "min-drag"],
+    "weight": [2.0, 1.0]
+  },
+  "geo_tgts": { "num_tgts": 1, "type": ["thickness"], "val": [0.12], "weight": [5.0] },
+  "constr": { "chk_geo": true, "min_t": 0.115, "max_t": 0.135, "min_te_ang": 5.0 },
+  "curv": { "chk_curv": true, "auto_curv": true, "max_rev_t": 1, "max_rev_b": 0 },
+  "xfoil_opts": { "visc": true, "iter": 250, "ncrit": 9.0 },
+  "optim_set": { "pop": 80, "gen": 200, "rescue": true }
+}

@@ -1,0 +1,19 @@
+{
+  "opt_opts": { "solver": "xfoil", "shape_func": "camb-thick" },
+  "ct_opts": { "thk": true, "thk_pos": true, "cmb": true, "cmb_pos": true },
+  "op_conds": {
+    "num_pts": 0
+  },
+  "geo_tgts": {
+    "num_tgts": 2,
+    "__COMMENT_1__": "Target 1: Force the thickness to exactly 16%",
+    "target_type(1)": "thickness",
+    "target_value(1)": 0.16,
+    "weighting(1)": 10.0,
+    "__COMMENT_2__": "Target 2: Minimize Euclidean deviation from the proprietary seed",
+    "target_type(2)": "match-foil",
+    "target_string(2)": "Airfoils/naca4412.dat",
+    "weighting(2)": 5.0
+  },
+  "optim_set": { "type": 1, "algo": "de", "pop": 30, "gen": 50 }
+}

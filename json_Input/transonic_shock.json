@@ -1,0 +1,16 @@
+{
+  "opt_opts": { "solver": "xfoil", "shape_func": "hicks-henne", "foil_file": ["Airfoils", "NACA4412.dat"], "out_dir": "Outputs", "auto_dir": true, "out_prefix": "Jet_Transonic_Fix", "threads": -1, "verbose": true },
+  "hh_opts": { "n_t": 9, "n_b": 0, "smooth": true, "init_pert": 0.03 },
+  "op_conds": {
+    "num_pts": 1, "re_def": 12000000.0, "ma_def": 0.75,
+    "mode": ["spec-cl"],
+    "val": [0.45],
+    "opt_type": ["min-drag"],
+    "weight": [1.0]
+  },
+  "geo_tgts": { "num_tgts": 1, "type": ["thickness"], "val": [0.11], "weight": [5.0] },
+  "constr": { "chk_geo": true, "min_t": 0.108, "max_t": 0.15, "min_te_ang": 6.0 },
+  "curv": { "chk_curv": true, "auto_curv": true, "max_rev_t": 2, "max_rev_b": 0, "curv_thr": 0.05, "spike_thr": 0.20 },
+  "xfoil_opts": { "visc": true, "iter": 300, "ncrit": 9.0, "vaccel": 0.01 },
+  "optim_set": { "type": 2,"pop": 60, "gen": 150, "rescue": true }
+}

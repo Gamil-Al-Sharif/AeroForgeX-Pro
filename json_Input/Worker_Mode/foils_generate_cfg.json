@@ -1,0 +1,127 @@
+{
+  "opt_opts": {
+    "solver": "xfoil",
+    "shape_func": "cst",
+    "foil_file": "C:\\Users\\gamee\\Documents\\Antigravity\\AeroForgeX26_05_2026\\AeroForgeX\\Airfoils\\2032c.dat",
+    "out_dir": "Outputs",
+    "auto_dir": true,
+    "out_prefix": "opt_run",
+    "threads": -1,
+    "verbose": true,
+    "aero_solver": "xfoil"
+  },
+  "cst_opts": {
+    "n_t": 6,
+    "n_b": 6,
+    "n1_t": 0.5,
+    "n2_t": 1.0,
+    "n1_b": 0.5,
+    "n2_b": 1.0,
+    "init_pert": 0.05
+  },
+  "bez_opts": {
+    "ncp_t": 5,
+    "ncp_b": 5,
+    "init_pert": 0.1
+  },
+  "hh_opts": {
+    "n_t": 5,
+    "n_b": 3,
+    "smooth": true,
+    "init_pert": 0.05
+  },
+  "ct_opts": {
+    "thk": true,
+    "thk_pos": true,
+    "cmb": true,
+    "cmb_pos": true,
+    "le_r": true,
+    "le_b": true,
+    "init_pert": 0.1
+  },
+  "op_conds": {
+    "num_pts": 1,
+    "re_def": 500000.0,
+    "ma_def": 0.0,
+    "use_flap": false,
+    "x_flap": 0.75,
+    "y_flap": 0.0,
+    "y_flap_spec": "y/c",
+    "flap_def": 0.0,
+    "dyn_weight": true,
+    "dyn_spec": {
+      "min_w": 0.2,
+      "max_w": 10.0,
+      "extra_punch": 2.0,
+      "frequency": 20,
+      "start_with_design": 5
+    }
+  },
+  "geo_tgts": {
+    "num_tgts": 0,
+    "type": [],
+    "val": [],
+    "weight": [],
+    "preset": [],
+    "str": []
+  },
+  "progression_spec": {
+    "active": false
+  },
+  "constr": {
+    "chk_geo": true,
+    "sym": false,
+    "min_t": 0.1,
+    "max_t": 0.3,
+    "min_c": 0.0,
+    "max_c": 0.1,
+    "min_te_ang": 5.0,
+    "min_flap": -5.0,
+    "max_flap": 15.0
+  },
+  "curv": {
+    "chk_curv": true,
+    "auto_curv": true,
+    "max_rev_t": 0,
+    "max_rev_b": 0,
+    "curv_thr": 0.05,
+    "spike_thr": 0.3,
+    "max_te_c": 5.0,
+    "max_le_diff": 5.0,
+    "max_spk_t": 0,
+    "max_spk_b": 0
+  },
+  "panel_opts": {
+    "npt": 161,
+    "le_clust": 0.86,
+    "te_clust": 0.6
+  },
+  "xfoil_opts": {
+    "visc": true,
+    "iter": 100,
+    "ncrit": 9.0,
+    "vaccel": 0.005,
+    "reinit": false,
+    "fix_unc": true,
+    "trip_t": 1.0,
+    "trip_b": 1.0,
+    "parallel_op": true,
+    "cache_prec": 6,
+    "sap_enabled": true,
+    "nf_conf_threshold": 0.5
+  },
+  "optim_set": {
+    "type": 3,
+    "algo": "lshade",
+    "pop": 50,
+    "gen": 300,
+    "min_r": 0.0001,
+    "retry": 3,
+    "speed": 0.021,
+    "init_att": 1000,
+    "conv_prof": "exhaustive",
+    "rescue": true,
+    "f": 0.5,
+    "cr": 0.9
+  }
+}

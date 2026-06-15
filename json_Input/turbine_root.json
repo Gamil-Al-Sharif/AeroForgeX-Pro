@@ -1,0 +1,14 @@
+{
+  "opt_opts": { "solver": "xfoil", "shape_func": "bezier", "foil_file": ["Airfoils", "NACA4415.dat"], "out_dir": "Outputs", "auto_dir": true, "out_prefix": "Turbine_Root_25", "threads": 6, "verbose": true },
+  "cst_opts": { "n_t": 9, "n_b": 9, "n1_t": 0.4, "n2_t": 1.0, "n1_b": 0.5, "n2_b": 1.0, "init_pert": 0.05 },
+  "bez_opts": { "ncp_t": 6, "ncp_b": 6, "init_pert": 0.15 },
+  "op_conds": {
+    "num_pts": 1, "re_def": 1500000.0, "ma_def": 0.0,
+    "mode": ["spec-al"], "val": [8.0], "opt_type": ["max-glide"], "weight": [1.0]
+  },
+  "geo_tgts": { "num_tgts": 1, "type": ["thickness"], "val": [0.25], "weight": [5.0] },
+  "constr": { "chk_geo": true, "min_t": 0.15, "max_t": 0.26, "min_te_ang": 15.0 },
+  "curv": { "chk_curv": true, "auto_curv": true, "max_rev_t": 0, "max_rev_b": 0, "max_te_c": 5.0 },
+  "xfoil_opts": { "visc": true, "iter": 300, "ncrit": 9.0, "trip_t": 0.05, "trip_b": 0.10 },
+  "optim_set": { "type": 3, "pop": 50, "gen": 200 }
+}

@@ -1,0 +1,65 @@
+{
+  "__SYSTEM__": "Standard Baseline Configuration",
+  
+  "opt_opts": {
+    "solver": "xfoil",
+    "shape_func": "cst",
+    "out_prefix": "Standard_Run",
+    "auto_output_dir": true,
+    "threads": -1,
+    "verbose": true
+  },
+  
+  "cst_opts": {
+    "n_t": 6,
+    "n_b": 6,
+    "initial_perturb": 0.05
+  },
+  
+  "op_conds": {
+    "num_pts": 1,
+    "re_def": 500000.0,
+    "mach_default": 0.0,
+    "use_flap": true,
+    "x_flap": 0.75,
+    "y_flap": 0.0,
+    
+    "mode": ["spec-al"],
+    "val": [5.0],
+    "opt_type": ["max-glide"],
+    "weight": [1.0],
+    "flap_opt": [false],
+    "flap_ang": [0.0]
+  },
+  
+  "constr": {
+    "chk_geo": true,
+    "sym": false,
+    "min_t": 0.12,
+    "max_t": 0.15,
+    "min_te_ang": 5.0
+  },
+  
+  "curv": {
+    "chk_curv": true,
+    "auto_curv": true,
+    "max_curv_reverse_top": 0,
+    "max_curv_reverse_bot": 0
+  },
+  
+  "optim_set": {
+    "type": 2,
+    "algo": "jde",
+    "pop": 40,
+    "gen": 100,
+    "rescue": true
+  },
+  
+  "xfoil_opts": {
+    "visc": true,
+    "iter": 150,
+    "ncrit": 9.0,
+    "vaccel": 0.005,
+    "sap_enabled": false
+  }
+}

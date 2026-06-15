@@ -1,0 +1,65 @@
+{
+  "opt_opts": {
+    "solver": "xfoil",
+    "shape_func": "cst",
+    "foil_file": "Airfoils/NACA0012.dat",
+    "out_dir": "Outputs",
+    "auto_dir": true,
+    "out_prefix": "test_shade_sap",
+    "threads": 6,
+    "verbose": true
+  },
+  "cst_opts": {
+    "n_t": 4,
+    "n_b": 4,
+    "init_pert": 0.05
+  },
+  "op_conds": {
+    "num_pts": 1,
+    "mode": ["spec-al"],
+    "val": [2.0],
+    "re": [500000.0],
+    "ma": [0.0],
+    "ncrit": [9.0],
+    "opt_type": ["max-glide"],
+    "weight": [1.0],
+    "tgt_val": [0.0],
+    "allow_imp": [true],
+    "flap_opt": [false],
+    "flap_ang": [0.0]
+  },
+  "geo_tgts": {
+    "num_tgts": 0,
+    "type": [],
+    "val": [],
+    "weight": [],
+    "preset": [],
+    "str": []
+  },
+  "constr": {
+    "chk_geo": true,
+    "sym": false,
+    "min_t": 0.1,
+    "max_t": 0.3,
+    "min_c": 0.0,
+    "max_c": 0.1
+  },
+  "curv": {
+    "chk_curv": true,
+    "auto_curv": true
+  },
+  "xfoil_opts": {
+    "visc": true,
+    "iter": 100,
+    "ncrit": 9.0,
+    "parallel_op": true,
+    "sap_enabled": true,
+    "nf_conf_threshold": 0.5
+  },
+  "optim_set": {
+    "algo": "shade",
+    "pop": 12,
+    "gen": 5,
+    "rescue": true
+  }
+}
