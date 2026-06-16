@@ -71,18 +71,10 @@ When executing an automated flight envelope sweep (cross-multiplying $Mach \time
 
   <ul style="margin-bottom: 0px; padding-left: 0px; list-style-type: none; font-size: 0.95em; color: #444; line-height: 1.7;">
     <li style="margin-bottom: 10px;"><strong style="color: #D97706;"><i class="fa-solid fa-water"></i> Graph 1: The Drag Polar ($C_D$ vs $C_L$)</strong><br>
-    The defining fingerprint. Look for the <strong>"Drag Bucket."</strong> On advanced laminar airfoils, the curve features a distinct vertical "dip" of exceptionally low drag. Your aircraft's design cruise $C_L$ must sit perfectly inside this bucket for maximum fuel efficiency.</li>
-    
-    <li style="margin-bottom: 10px;"><strong style="color: #D97706;"><i class="fa-solid fa-plane-arrival"></i> Graph 2: The Lift Curve ($C_L$ vs $\alpha$)</strong><br>
-    Observe the top right where the line crests—this is your <strong>Stall Angle ($C_{L_{max}}$)</strong>. A sharp, vertical cliff indicates a dangerous Leading-Edge Stall. A gentle rounding indicates a benign Trailing-Edge Stall.</li>
-    
-    <li style="margin-bottom: 10px;"><strong style="color: #D97706;"><i class="fa-solid fa-paper-plane"></i> Graph 3: Aerodynamic Efficiency ($L/D$ vs $\alpha$)</strong><br>
-    The absolute peak dictates maximum wing efficiency. For gliders or endurance UAVs, this exact angle is your target pitch for maximizing flight time.</li>
-    
-    <li style="margin-bottom: 10px;"><strong style="color: #D97706;"><i class="fa-solid fa-rotate-left"></i> Graph 4: Pitching Moment ($C_M$ vs $\alpha$)</strong><br>
-    A highly negative $C_M$ implies a strong nose-down moment. Massive lift wings often generate massive negative $C_M$, requiring a large tailplane downforce, which induces massive "Trim Drag" that negates the wing's benefits.</li>
-    
-    <li><strong style="color: #D97706;"><i class="fa-solid fa-wind"></i> Graph 5: Boundary Layer Transition ($X_{tr}$ vs $\alpha$)</strong><br>
+    The defining fingerprint. Look for the <strong>"Drag Bucket."</strong> On advanced laminar airfoils, the curve features a distinct vertical "dip" of exceptionally low drag. Your aircraft's design cruise $C_L$ must sit perfectly inside this bucket for maximum fuel efficiency.</li> <li style="margin-bottom: 10px;"><strong style="color: #D97706;"><i class="fa-solid fa-plane-arrival"></i> Graph 2: The Lift Curve ($C_L$ vs $\alpha$)</strong><br>
+    Observe the top right where the line crests—this is your <strong>Stall Angle ($C_{L_{max}}$)</strong>. A sharp, vertical cliff indicates a dangerous Leading-Edge Stall. A gentle rounding indicates a benign Trailing-Edge Stall.</li> <li style="margin-bottom: 10px;"><strong style="color: #D97706;"><i class="fa-solid fa-paper-plane"></i> Graph 3: Aerodynamic Efficiency ($L/D$ vs $\alpha$)</strong><br>
+    The absolute peak dictates maximum wing efficiency. For gliders or endurance UAVs, this exact angle is your target pitch for maximizing flight time.</li>  <li style="margin-bottom: 10px;"><strong style="color: #D97706;"><i class="fa-solid fa-rotate-left"></i> Graph 4: Pitching Moment ($C_M$ vs $\alpha$)</strong><br>
+    A highly negative $C_M$ implies a strong nose-down moment. Massive lift wings often generate massive negative $C_M$, requiring a large tailplane downforce, which induces massive "Trim Drag" that negates the wing's benefits.</li>  <li><strong style="color: #D97706;"><i class="fa-solid fa-wind"></i> Graph 5: Boundary Layer Transition ($X_{tr}$ vs $\alpha$)</strong><br>
     The holy grail of low-speed aerodynamics. If the line stays near $0.6$ or $0.7$ (60-70% chord) even at high angles, you have achieved a highly advanced Laminar Flow airfoil. If it drops to $0.1$ immediately, it is fully turbulent.</li>
   </ul>
 </div>
