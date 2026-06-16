@@ -137,7 +137,7 @@ def main():
     )
     n_pfx, n_f = get_p("NACA_0012_Norm"), get_p("NACA_0012_Norm.dat")
 
-    run_cmd(["-w", "check-input", "-i", w_cfg], "WORKER: Check Config")
+    run_cmd(["-w", "check-input", "-i", w_cfg, "-a", s_0], "WORKER: Check Config")
     run_cmd(["-w", "norm", "-a", s_0, "-o", n_pfx], "WORKER: Normalize")
     run_cmd(["-w", "check", "-i", w_cfg, "-a", n_f], "WORKER: Curvature Diagnostics")
     run_cmd(
