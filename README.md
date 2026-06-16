@@ -243,7 +243,10 @@ streamlit run AeroForgeX_GUI.py
 *(Your browser will open automatically. Visually configure your run and deploy!)*
 
 
-<img src="docs/images/readme1.jpg" alt="AeroForgeX Pro Screenshot" width="600">
+<p align="center">
+  <img src="docs/images/readme1.jpg" alt="AeroForgeX Pro Screenshot" width="100%" style="max-width: 800px;">
+</p>
+
 
 
 ### <span style="color: #1E90FF;"><i class="fa-solid fa-terminal"></i> Method B: The Command Line Orchestrator</span>
