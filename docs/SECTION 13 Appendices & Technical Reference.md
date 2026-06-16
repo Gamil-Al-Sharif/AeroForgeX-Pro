@@ -375,14 +375,14 @@ $$[A]x = [D]$$
 
 Because the B-spline matrix $[A]$ is perfectly tridiagonal (containing zeroes everywhere except the main diagonal and the two adjacent diagonals), AeroForgeX bypasses standard $O(n^3)$ Gaussian elimination in favor of the lightning-fast $O(n)$ **Thomas Algorithm**.
 
-**1. Forward Sweep (Elimination):** 
+**1. Forward Sweep (Elimination):**
 $$c'_i = \frac{c_i}{b_i - m \cdot c_{i-1}} \quad \text{where} \quad m = \frac{a_{i-1}}{b_{i-1}}$$
+
 $$d'_i = \frac{d_i - m \cdot d_{i-1}}{b_i - a_i \cdot c'_{i-1}}$$
 
-**2. Back Substitution:** The exact second derivatives ($x$) of the spline knots are found instantly by sweeping backward from $n$ to $1$: 
-$$x_n = d'_n$$
-$$x_i = d'_i - c'_i \cdot x_{i+1}$$
+**2. Back Substitution:** The exact second derivatives ($x$) of the spline knots are found instantly by sweeping backward from $n$ to $1$: $x_n = d'_n$
 
+$$x_i = d'_i - c'_i \cdot x_{i+1}$$
 
 ---
 
