@@ -243,8 +243,9 @@ streamlit run AeroForgeX_GUI.py
 *(Your browser will open automatically. Visually configure your run and deploy!)*
 
 ![GUIK][image_ref_i7wzfvza]
+<img src="docs/images/readme1.jpg" alt="AeroForgeX Pro Screenshot" width="600">
 
-https://github.com/Gamil-Al-Sharif/AeroForgeX-Pro/blob/main/docs/images/readme1.jpg
+
 ### <span style="color: #1E90FF;"><i class="fa-solid fa-terminal"></i> Method B: The Command Line Orchestrator</span>
 ```bash
 python AeroForgeX_scr/aeroforgex_cli.py -i json_Input/quickstart.json -a Airfoils/NACA0012.dat -o Outputs/MyOptimizedFoil
