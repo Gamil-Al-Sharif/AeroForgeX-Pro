@@ -367,11 +367,13 @@ $$Y_{new}(x) = Y_{base}(x) + S \cdot \left[ \sin\left( \pi \cdot x^{\frac{\log(0
 
 ### <span style="color: #4682B4;"><i class="fa-solid fa-table-cells"></i> B.3 The Thomas Algorithm (Tridiagonal Matrix Solver)</span>
 
+
+
 To compute continuous 2D Cubic Splines for curvature diagnostics (`-w check`), AeroForgeX must calculate the second derivatives ($x_i$) for the 161 coordinate points. This requires solving a system of $n$ simultaneous equations:
 
 $$[A]x = [D]$$
 
-Because the B-spline matrix $[A]$ is perfectly tridiagonal (containing zeroes everywhere except the main diagonal and the two adjacent diagonals), AeroForgeX bypasses standard $O(n^3)$ Gaussian elimination in favor of the lightning-fast $O(n)$ **Thomas Algorithm** .
+Because the B-spline matrix $[A]$ is perfectly tridiagonal (containing zeroes everywhere except the main diagonal and the two adjacent diagonals), AeroForgeX bypasses standard $O(n^3)$ Gaussian elimination in favor of the lightning-fast $O(n)$ **Thomas Algorithm**.
 
 **1. Forward Sweep (Elimination):** 
 $$c'_i = \frac{c_i}{b_i - m \cdot c_{i-1}} \quad \text{where} \quad m = \frac{a_{i-1}}{b_{i-1}}$$
@@ -380,6 +382,7 @@ $$d'_i = \frac{d_i - m \cdot d_{i-1}}{b_i - a_i \cdot c'_{i-1}}$$
 **2. Back Substitution:** The exact second derivatives ($x$) of the spline knots are found instantly by sweeping backward from $n$ to $1$: 
 $$x_n = d'_n$$
 $$x_i = d'_i - c'_i \cdot x_{i+1}$$
+
 
 ---
 
@@ -511,7 +514,7 @@ Here is the highly detailed, professional **Appendix D: Troubleshooting & Error 
 
 This section serves as an essential reference for diagnosing system failures, deciphering Fortran error outputs, and resolving Python routing conflicts when managing complex High-Performance Computing (HPC) environments. AeroForgeX operates at the complex intersection of artificial intelligence, non-linear fluid dynamics, and rigid computational geometry. When you push the boundaries of aerodynamics—such as demanding a $25\%$ thick wind turbine root, or forcing a Mach $0.8$ business jet wing to remain laminar—you will inevitably encounter mathematical paradoxes, solver divergence, and AI stagnation.
 
-To prevent bad math from permanently corrupting your flight envelopes, AeroForgeX uses a strict OS-level `<span style="font-family: monospace; color: #E32636;">sys.exit(1)</span>` protocol to instantly halt execution when it detects a catastrophic failure. If the terminal flashes red and halts, or if your Streamlit Web GUI logs a `[ FATAL ]` warning, consult this diagnostic ledger.
+To prevent bad math from permanently corrupting your flight envelopes, AeroForgeX uses a strict OS-level `sys.exit(1)` protocol to instantly halt execution when it detects a catastrophic failure. If the terminal flashes red and halts, or if your Streamlit Web GUI logs a `[ FATAL ]` warning, consult this diagnostic ledger.
 
 ---
 
