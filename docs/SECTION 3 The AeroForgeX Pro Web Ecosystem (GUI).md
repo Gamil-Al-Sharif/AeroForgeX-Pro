@@ -125,18 +125,10 @@ This tab acts as the mission control for the Memetic Artificial Intelligence. Th
   <ul style="margin-bottom: 0px; padding-left: 20px; font-size: 0.95em; color: #444; line-height: 1.7;">
     
     <li><strong style="color: #8B5CF6;">"de" (Standard DE):</strong> <span style="background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: #334155; margin-left: 5px;">Requires Type: 1</span><br> 
-    Uses fixed, unyielding mutation and crossover rates. Best for simple, low-dimensional problems like Camb-Thick scaling. Struggles heavily with coupled variables like CST due to its fixed step sizes.</li>
-    
-    <li><strong style="color: #8B5CF6;">"jde" (Self-Adaptive DE):</strong> <span style="background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: #334155; margin-left: 5px;">Requires Type: 1</span><br> 
-    The safest "Daily Driver." Encodes mutation factors directly into the DNA of the airfoils. The algorithm literally learns which step sizes yield the best aerodynamics and shrinks its search radius as it approaches the optimum.</li>
-    
-    <li><strong style="color: #8B5CF6;">"shade" (Success-History Adaptive):</strong> <span style="background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: #334155; margin-left: 5px;">Requires Type: 1</span><br> 
-    The "Surgical Scalpel." Maintains a historical archive of successful mathematical leaps and uses Cauchy/Normal statistical distributions to generate new parameters. Pulls mutations toward the top 20% of the swarm. <em><strong>Absolute necessity for 12+ variables</strong> (e.g., High-Order Kulfan CST or Kinematic Flap co-optimization).</em></li>
-    
-    <li><strong style="color: #8B5CF6;">"lshade" (Linear Pop. Reduction):</strong> <span style="background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: #334155; margin-left: 5px;">Mapped via PyMoo</span><br> 
-    As the optimizer nears the final generations, it dynamically shrinks the population size, violently forcing the algorithm from broad global exploration into aggressive local exploitation.</li>
-    
-    <li><strong style="color: #8B5CF6;">"nm-only" (Nelder-Mead Only):</strong> <span style="background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: #334155; margin-left: 5px;">Requires Type: 1</span><br> 
+    Uses fixed, unyielding mutation and crossover rates. Best for simple, low-dimensional problems like Camb-Thick scaling. Struggles heavily with coupled variables like CST due to its fixed step sizes.</li>    <li><strong style="color: #8B5CF6;">"jde" (Self-Adaptive DE):</strong> <span style="background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: #334155; margin-left: 5px;">Requires Type: 1</span><br> 
+    The safest "Daily Driver." Encodes mutation factors directly into the DNA of the airfoils. The algorithm literally learns which step sizes yield the best aerodynamics and shrinks its search radius as it approaches the optimum.</li>  <li><strong style="color: #8B5CF6;">"shade" (Success-History Adaptive):</strong> <span style="background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: #334155; margin-left: 5px;">Requires Type: 1</span><br> 
+    The "Surgical Scalpel." Maintains a historical archive of successful mathematical leaps and uses Cauchy/Normal statistical distributions to generate new parameters. Pulls mutations toward the top 20% of the swarm. <em><strong>Absolute necessity for 12+ variables</strong> (e.g., High-Order Kulfan CST or Kinematic Flap co-optimization).</em></li>  <li><strong style="color: #8B5CF6;">"lshade" (Linear Pop. Reduction):</strong> <span style="background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: #334155; margin-left: 5px;">Mapped via PyMoo</span><br> 
+    As the optimizer nears the final generations, it dynamically shrinks the population size, violently forcing the algorithm from broad global exploration into aggressive local exploitation.</li>  <li><strong style="color: #8B5CF6;">"nm-only" (Nelder-Mead Only):</strong> <span style="background-color: #E2E8F0; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; color: #334155; margin-left: 5px;">Requires Type: 1</span><br> 
     Skips biological evolution entirely. <em>Use this if you have a 99% perfect airfoil and just want gradient-free local polishing to squeeze out the final $10^{-8}$ decimal points of drag.</em></li>
     
   </ul>
