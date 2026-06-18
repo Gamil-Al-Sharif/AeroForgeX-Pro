@@ -9,7 +9,7 @@
 <h1 style="color: #1E90FF; font-size: 3em; margin-bottom: 0px;"><i class="fa-solid fa-plane-up"></i> AeroForgeX</h1>
 <p style="color: #708090; font-size: 1.3em; font-style: italic; font-weight: bold; margin-top: 5px;">Enterprise-Grade Multidisciplinary Airfoil Optimization & Analysis Suite</p>
 <div align="center">
-  <img src=" docs/images/AeroForgeX_banner.png" alt=" AeroForgeX Framework Banner" width="100%">
+  <img src="docs/images/AeroForgeX_banner.png" alt=" AeroForgeX Framework Banner" width="100%">
 </div>
 
 <!-- FLEXBOX BADGES (Perfectly Spaced & Formatted) -->
